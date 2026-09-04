@@ -1,15 +1,26 @@
-import { customAlphabet } from "nanoid";
+import { randomBytes } from "crypto";
 import File from "../models/File.js";
 
 // Avoid ambiguous chars (0/O, 1/I/L) for codes read aloud over a call
 const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
-const generateShortCode = customAlphabet(CODE_ALPHABET, 6);
+const LINK_ALPHABET =
+  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-// Link tokens can be longer/URL-safe since they're never typed by hand
-const generateLinkToken = customAlphabet(
-  "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-  16
-);
+function generateFromAlphabet(alphabet, length) {
+  let result = "";
+  while (result.length < length) {
+    const byte = randomBytes(1)[0];
+    // Reject bytes that would cause modulo bias
+    const limit = 256 - (256 % alphabet.length);
+    if (byte < limit) {
+      result += alphabet[byte % alphabet.length];
+    }
+  }
+  return result;
+}
+
+const generateShortCode = () => generateFromAlphabet(CODE_ALPHABET, 6);
+const generateLinkToken = () => generateFromAlphabet(LINK_ALPHABET, 16);
 
 /**
  * Generates a unique 6-character code, retrying on collision.
