@@ -1,0 +1,63 @@
+:root {
+  /* Color */
+  --bg-void: #05070D;
+  --bg-panel: #0C1120;
+  --bg-panel-raised: #121933;
+  --line: rgba(148, 163, 210, 0.14);
+  --line-bright: rgba(148, 163, 210, 0.28);
+  --signal-blue: #4C7CF5;
+  --signal-blue-dim: #2A3F7A;
+  --transmit-amber: #FF9B4A;
+  --text-primary: #EDEFF7;
+  --text-secondary: #8B93B0;
+  --text-tertiary: #565D78;
+  --success: #4ADE9C;
+  --danger: #FF6B6B;
+
+  /* Type */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* Motion */
+  --ease-signal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--signal-blue-dim);
+  color: var(--text-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
