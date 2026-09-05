@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output (Render builds this fresh on each deploy)
+dist/
+
+# Environment variables — NEVER commit secrets
+.env
+
+# Uploaded files (runtime data, not source)
+uploads/*
+!uploads/.gitkeep
+
+# macOS
+.DS_Store
