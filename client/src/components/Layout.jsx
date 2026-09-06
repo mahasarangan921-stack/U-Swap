@@ -7,7 +7,7 @@ export default function Layout({ children }) {
       <div className="layout__grain" aria-hidden="true" />
       <header className="layout__header">
         <Link to="/" className="layout__logo">
-          U<span className="layout__logo-accent">SWAP</span>
+          U <span className="layout__logo-accent">SWAP</span>
         </Link>
       </header>
       <main className="layout__main">{children}</main>
