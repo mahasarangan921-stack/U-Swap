@@ -1,4 +1,4 @@
-# ARMA Transfer
+# U SWAP
 
 Send files to anyone using just a unique code. No accounts, no installs.
 
@@ -7,7 +7,7 @@ MERN — MongoDB, Express, React, Node.js
 
 ## Structure
 ```
-arma-transfer/
+U SWAP/
 ├── server/          Express API (upload, verify, download, cleanup)
 │   ├── models/File.js
 │   ├── routes/upload.js
